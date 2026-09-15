@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,15 +14,209 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Theme is controlled by Settings */
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #020617;
+  --foreground: #f8fafc;
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+/* Dashboard backgrounds */
+
+html.dark .bg-white {
+  background-color: #0f172a;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #020617;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #1e293b;
+}
+
+html.dark .bg-slate-200 {
+  background-color: #334155;
+}
+
+html.dark .bg-slate-800 {
+  background-color: #1e293b;
+}
+
+html.dark .bg-slate-900 {
+  background-color: #020617;
+}
+
+/* Dashboard text */
+
+html.dark .text-slate-900 {
+  color: #f8fafc;
+}
+
+html.dark .text-slate-800 {
+  color: #f1f5f9;
+}
+
+html.dark .text-slate-700 {
+  color: #e2e8f0;
+}
+
+html.dark .text-slate-600 {
+  color: #cbd5e1;
+}
+
+html.dark .text-slate-500 {
+  color: #94a3b8;
+}
+
+html.dark .text-slate-400 {
+  color: #94a3b8;
+}
+
+/* Keep white text white in dark mode */
+html.dark .text-white {
+  color: #ffffff;
+}
+
+/* Borders */
+
+html.dark .border-slate-200 {
+  border-color: #334155;
+}
+
+html.dark .border-slate-300 {
+  border-color: #475569;
+}
+
+html.dark .border-slate-600 {
+  border-color: #475569;
+}
+
+html.dark .border-slate-700 {
+  border-color: #334155;
+}
+
+/* Inputs */
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b;
+}
+
+html.dark select option {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+/* Tables */
+
+html.dark table {
+  color: #f8fafc;
+}
+
+html.dark table thead {
+  background-color: #1e293b;
+}
+
+html.dark table tbody tr:hover {
+  background-color: #1e293b;
+}
+
+/* Dividers */
+
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #334155;
+}
+
+html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #334155;
+}
+
+/* Muted surfaces */
+
+html.dark .placeholder\:text-slate-400::placeholder {
+  color: #64748b;
+}
+
+/* =========================================================
+   COMMON DARK MODE SURFACES
+   ========================================================= */
+
+html.dark .bg-gray-50 {
+  background-color: #020617;
+}
+
+html.dark .bg-gray-100 {
+  background-color: #1e293b;
+}
+
+html.dark .bg-gray-200 {
+  background-color: #334155;
+}
+
+html.dark .bg-gray-800 {
+  background-color: #1e293b;
+}
+
+html.dark .bg-gray-900 {
+  background-color: #020617;
+}
+
+html.dark .text-gray-900 {
+  color: #f8fafc;
+}
+
+html.dark .text-gray-800 {
+  color: #f1f5f9;
+}
+
+html.dark .text-gray-700 {
+  color: #e2e8f0;
+}
+
+html.dark .text-gray-600 {
+  color: #cbd5e1;
+}
+
+html.dark .text-gray-500 {
+  color: #94a3b8;
+}
+
+html.dark .border-gray-200 {
+  border-color: #334155;
+}
+
+html.dark .border-gray-300 {
+  border-color: #475569;
 }
